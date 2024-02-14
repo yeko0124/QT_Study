@@ -8,16 +8,16 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import *  # type: ignore
-from PyQt5.QtGui import *  # type: ignore
-from PyQt5.QtWidgets import *  # type: ignore
+from PySide2.QtCore import *  # type: ignore
+from PySide2.QtGui import *  # type: ignore
+from PySide2.QtWidgets import *  # type: ignore
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(796, 320)
+        MainWindow.resize(803, 347)
         self.actionHelp = QAction(MainWindow)
         self.actionHelp.setObjectName(u"actionHelp")
         self.actionExit = QAction(MainWindow)
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.frame__img_show = QFrame(self.centralwidget)
         self.frame__img_show.setObjectName(u"frame__img_show")
-        self.frame__img_show.setGeometry(QRect(529, 84, 251, 161))
+        self.frame__img_show.setGeometry(QRect(529, 74, 251, 161))
         self.frame__img_show.setFrameShape(QFrame.StyledPanel)
         self.frame__img_show.setFrameShadow(QFrame.Raised)
         self.label__img_show = QLabel(self.frame__img_show)
@@ -41,7 +41,7 @@ class Ui_MainWindow(object):
         self.label__img_show.setAlignment(Qt.AlignCenter)
         self.layoutWidget = QWidget(self.centralwidget)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(20, 20, 511, 33))
+        self.layoutWidget.setGeometry(QRect(20, 10, 491, 33))
         self.horizontalLayout = QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -57,10 +57,12 @@ class Ui_MainWindow(object):
 
         self.layoutWidget1 = QWidget(self.centralwidget)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(20, 60, 491, 181))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
+        self.layoutWidget1.setGeometry(QRect(19, 50, 491, 231))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget1)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_3 = QLabel(self.layoutWidget1)
@@ -91,27 +93,29 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
 
-        self.layoutWidget2 = QWidget(self.centralwidget)
-        self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(19, 244, 381, 41))
-        self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget2)
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.lineEdit__select_grp = QLineEdit(self.layoutWidget2)
+        self.lineEdit__select_grp = QLineEdit(self.layoutWidget1)
         self.lineEdit__select_grp.setObjectName(u"lineEdit__select_grp")
-        self.lineEdit__select_grp.setReadOnly(False)
+        self.lineEdit__select_grp.setReadOnly(True)
 
         self.horizontalLayout_3.addWidget(self.lineEdit__select_grp)
 
-        self.pushButton__convert = QPushButton(self.layoutWidget2)
+        self.pushButton__convert = QPushButton(self.layoutWidget1)
         self.pushButton__convert.setObjectName(u"pushButton__convert")
 
         self.horizontalLayout_3.addWidget(self.pushButton__convert)
 
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 796, 24))
+        self.menubar.setGeometry(QRect(0, 0, 803, 24))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuAbout = QMenu(self.menubar)
@@ -139,7 +143,7 @@ class Ui_MainWindow(object):
         self.pushButton__open_dir.setText(QCoreApplication.translate("MainWindow", u"Open Dir", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Seq Group List", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Seq Detail List", None))
-        self.pushButton__convert.setText(QCoreApplication.translate("MainWindow", u"convert to gif", None))
+        self.pushButton__convert.setText(QCoreApplication.translate("MainWindow", u"convert to mov", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuAbout.setTitle(QCoreApplication.translate("MainWindow", u"About", None))
     # retranslateUi

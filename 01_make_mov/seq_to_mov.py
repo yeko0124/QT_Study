@@ -38,6 +38,7 @@ class SeqToMov(QtWidgets.QMainWindow, seq_to_mov_ui.Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        self.setupUi(self)
         self.filename = list()  # 이미지 파일들을 긁어와서 저장하기 위한 리스트
         self.sub_filename = list()  # 다른 이미지 그룹을 선택할 때, detail list가 초기화될 수 있도록 옮겨놓기 위한 용도
 
@@ -45,8 +46,7 @@ class SeqToMov(QtWidgets.QMainWindow, seq_to_mov_ui.Ui_MainWindow):
 
         self.zip_f = None  # 이미지리스트를 pyseq.Sequence 하여 얻은 결과값 저장하기 위한 변수
 
-        self.setupUi(self)
-        self.show()
+
         self.label__img_show.setScaledContents(True)  # 이미지 프리뷰와 레이블 사이즈 맞추기
 
         self.dpath = None  # 파일 오픈 경로
@@ -150,5 +150,5 @@ class SeqToMov(QtWidgets.QMainWindow, seq_to_mov_ui.Ui_MainWindow):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     s = SeqToMov()
-    # s.show()  # 아예 _init_ 안에 self.show()로 써줘도 된다고 함.
+    s.show()  # 아예 _init_ 안에 self.show()로 써줘도 된다고 함.
     sys.exit(app.exec_())
