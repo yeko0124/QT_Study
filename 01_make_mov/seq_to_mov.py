@@ -11,7 +11,7 @@ from tqdm import tqdm
 import pyseq
 
 # local project modules
-from PyQt5 import QtGui, QtWidgets, QtCore
+from PySide2 import QtGui, QtWidgets, QtCore
 import importlib
 
 # gui modules
@@ -30,6 +30,7 @@ importlib.reload(seq_to_mov_ui)
 
 (추가하고 싶은 것)
 - mov를 컨버트 성공하게 되면, gif는 pyseq 프리뷰처럼 뜨는 걸로 변경해보기
+- OpenEXR도 시도
 
 """
 
