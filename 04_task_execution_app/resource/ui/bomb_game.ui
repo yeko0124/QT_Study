@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>BOMB BOMB BOMB</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -90,6 +90,20 @@
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_6">
+                 <property name="text">
+                  <string>숫자 잘못 입력하면</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_7">
+                 <property name="text">
+                  <string>폭탄은 고장남</string>
                  </property>
                 </widget>
                </item>
@@ -210,7 +224,7 @@
      <x>0</x>
      <y>0</y>
      <width>691</width>
-     <height>24</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

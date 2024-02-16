@@ -50,7 +50,7 @@ class UIThread(QtCore.QThread):
         self.__condition = QtCore.QWaitCondition()
         self.__mutex = QtCore.QMutex()
 
-        self.pattern = re.compile(r'^[\d+]$') # 숫자만 넣어야 함
+        # self.pattern = re.compile('^\d+$')  # 숫자만 넣어야 함
 
     def resume(self):
         if self.__is_pause:
@@ -81,10 +81,10 @@ class UIThread(QtCore.QThread):
         self.__is_pause = flag
 
     def run(self):
-        if not self.pattern.match(self.input_num):
-            msg_sig = '숫자만 입력해야해요,, 안그러면 폭탄이 고장나요'
-            self.signals.message.emit(msg_sig)
-            exit()
+        # if not self.pattern.match(self.input_num):
+        #     msg_sig = '숫자만 입력해야해요,, 안그러면 폭탄이 고장나요'
+        #     self.signals.message.emit(msg_sig)
+        #     raise ValueError('숫자 입력!')
 
         for x in range(int(self.input_num), -1, -1):
             seconds = x % 60
@@ -103,9 +103,19 @@ class UIThread(QtCore.QThread):
             self.signals.time_update.emit(res_time)
             # print(res_time)
 
-            if  ratio == 100:
+            if ratio == 100:
                 msg_sig = '결국 폭탄이 터졌습니다!!!!'
                 self.signals.message.emit(msg_sig)
+
+
+# class User(QtWidgets.QGraphicsEllipseItem):
+#     def __init__(self):
+#         super().__init__()
+#
+#     def create_user(self):
+#         self.setRect(20, 20, 20, 20)
+#         self.setBrush(QtGui.QColor('brown'))
+#         self.setRect(20, 5, 10, 5)
 
 
 class Bomb(QtWidgets.QGraphicsEllipseItem):
@@ -113,18 +123,19 @@ class Bomb(QtWidgets.QGraphicsEllipseItem):
         super().__init__()
 
     def create_bomb(self):
-        self.setRect(50,50,50,50)
-        self.setBrush(QtGui.QColor('grey'))
+        self.setRect(50, 50, 50, 50)
+        self.setBrush(QtGui.QColor('black'))
 
 
 class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle('BOMB BOMB BOMB')
         self.setupUi(self)
         self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
         self.__ui_thread = UIThread('')
         self.is_exist_bomb(False)
+
+        self.pattern = re.compile('^\d+$')  # 숫자만 넣어야 함
 
         self.init_set()
 
@@ -139,31 +150,24 @@ class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
     def slot_msg(self, msg):
         # end
         if msg == '결국 폭탄이 터졌습니다!!!!':
-            self.lineEdit__input_text.setPlaceholderText(msg)
-            self.lineEdit__input_text.setText('')
-            self.lineEdit__input_text.setReadOnly(False)
+            self.lineEdit__input_text.setText(msg)
             self.scene.removeItem(self.bb)
             self.is_input_err(False)
-        elif msg == '숫자만 입력해야해요,, 안그러면 폭탄이 고장나요':
-            # input err
-            self.lineEdit__input_text.setPlaceholderText(msg)
-            self.lineEdit__input_text.setText('')
-            self.lineEdit__input_text.setReadOnly(False)
-            self.is_input_err()
+        # elif msg == '숫자만 입력해야해요,, 안그러면 폭탄이 고장나요':
+        #     self.lineEdit__input_text.setText(msg)
+        #     self.lineEdit__input_text.setReadOnly(True)
+        #     self.is_input_err()
 
         if self.__ui_thread.isRunning():
             self.slot_start()
 
     def is_input_err(self, check=True):
-        if check:
-            self.pushButton__start.setEnabled(True)
-            self.pushButton__pause.setEnabled(False)
-            self.pushButton__cancle.setEnabled(False)
         if check is False:
             self.pushButton__start.setEnabled(False)
             self.pushButton__pause.setEnabled(False)
             self.pushButton__cancle.setEnabled(False)
-
+        else:
+            pass
 
     def keyPressEvent(self, event: QtGui.QKeyEvent):
         if event.key() == QtCore.Qt.Key_Space:
@@ -192,7 +196,14 @@ class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
         self.pushButton__start.setEnabled(False)
         self.pushButton__cancle.setEnabled(True)
         self.pushButton__pause.setEnabled(True)
+
         in_sec = self.lineEdit__input_text.text()
+
+        if not self.pattern.match(in_sec):
+            self.lineEdit__input_text.setText('숫자만 입력해야해요,, 안그러면 폭탄이 고장나요')
+            self.lineEdit__input_text.setReadOnly(True)
+            self.pushButton__pause.setEnabled(False)
+            raise ValueError('숫자 입력!')
 
         if not self.__ui_thread.isRunning():
             self.__ui_thread.is_start = True
@@ -200,18 +211,18 @@ class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
             self.__ui_thread.is_pause = False
 
             self.__ui_thread.input_num = in_sec
-
             if len(self.lineEdit__input_text.text()):
-                self.lineEdit__input_text.setPlaceholderText(in_sec)
-                self.lineEdit__input_text.setText(
-                    f'폭탄이 {in_sec}초만에 터질겁니다!!!으아아!')
+                if 1 > (int(in_sec)/60) > 0:
+                    self.lineEdit__input_text.setText(
+                        f'폭탄이 {int(in_sec)%60:0.0f}초 만에 터질겁니다!!!으아아!')
+                else:
+                    self.lineEdit__input_text.setText(
+                        # TODO 분으로 넘어갈 때, 분/ 초로 나눌 수 있도록
+                        f'폭탄이 {int(in_sec)/60:0.0f}분 {int(in_sec)%60:0.0f}초 만에 터질겁니다!!!으아아!')
                 self.lineEdit__input_text.setReadOnly(True)
 
                 self.__ui_thread.start()
                 self.__ui_thread.daemon = True
-                # except ImportError as err:
-                #     self.__ui_thread.quit()
-                #     print(f'{err},숫자를 적어주세요')
             else:
                 # print('err')
                 self.lineEdit__input_text.setPlaceholderText(
@@ -224,15 +235,16 @@ class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
 
     def slot_cancel(self):
         self.pushButton__cancle.setEnabled(False)
-        self.pushButton__start.setEnabled(True)
+        self.pushButton__start.setEnabled(False)
         self.pushButton__pause.setEnabled(False)
 
         self.__ui_thread.is_start = False
         self.__ui_thread.is_cancel = True
         self.lineEdit__input_text.setReadOnly(True)
-        self.lineEdit__input_text.setPlaceholderText('폭탄을 철거합니다')
+        self.lineEdit__input_text.setText('폭탄을 철거합니다')
         self.scene.removeItem(self.bb)
-        self.init_set()
+        self.progressBar.setValue(0)
+        self.lcdNumber.display('00:00')
 
     def slot_pause(self):
         self.pushButton__pause.setEnabled(False)

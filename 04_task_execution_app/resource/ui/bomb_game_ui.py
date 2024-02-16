@@ -66,6 +66,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.label_4)
 
+        self.label_6 = QLabel(self.groupBox)
+        self.label_6.setObjectName(u"label_6")
+
+        self.verticalLayout_2.addWidget(self.label_6)
+
+        self.label_7 = QLabel(self.groupBox)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout_2.addWidget(self.label_7)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
@@ -156,7 +166,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 691, 24))
+        self.menubar.setGeometry(QRect(0, 0, 691, 20))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -168,12 +178,14 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"BOMB BOMB BOMB", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"How to Play", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u" SpaceBar: \ud3ed\ud0c4\uc124\uce58", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u" \ubc29\ud5a5\ud0a4: \uce90\ub9ad\ud130 \ubc29\ud5a5", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"------------------", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\ud3ed\ud0c4\uc124\uce58 \ud6c4, \ud0c0\uc774\uba38 \uc124\uc815", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"\uc22b\uc790 \uc798\ubabb \uc785\ub825\ud558\uba74", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\ud3ed\ud0c4\uc740 \uace0\uc7a5\ub0a8", None))
         self.pushButton__cancle.setText(QCoreApplication.translate("MainWindow", u"\ucca0\uac70", None))
         self.pushButton__pause.setText(QCoreApplication.translate("MainWindow", u"\uc815\uc9c0", None))
         self.pushButton__start.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\uc791", None))

@@ -106,7 +106,6 @@ class CustomCalculator(QtWidgets.QMainWindow, cal.Ui_MainWindow):
             #  shift 를 눌렀을 때 지정한대로(부모함수) 동작하도록 하기 위해서 super를 써버리면 self.result가 유지된다
             super().keyPressEvent(event)
 
-
     def num1(self):
         if self.result == '0':
             self.result = ''
