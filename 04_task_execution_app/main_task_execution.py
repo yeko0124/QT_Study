@@ -152,6 +152,8 @@ class Main(QtWidgets.QMainWindow, bomb.Ui_MainWindow):
         if msg == '결국 폭탄이 터졌습니다!!!!':
             self.lineEdit__input_text.setText(msg)
             self.scene.removeItem(self.bb)
+            # TODO 배경색깔 빨갛게 바꾸기!
+            self.graphicsView.drawBackground(painter=QtGui.QPainter, rect=QtCore.QRectF)
             self.is_input_err(False)
         # elif msg == '숫자만 입력해야해요,, 안그러면 폭탄이 고장나요':
         #     self.lineEdit__input_text.setText(msg)
