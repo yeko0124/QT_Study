@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(691, 283)
+        MainWindow.resize(952, 403)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_5 = QVBoxLayout(self.centralwidget)
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName(u"label")
         self.label.setFrameShape(QFrame.NoFrame)
         self.label.setFrameShadow(QFrame.Plain)
-        self.label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        # self.label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label)
 
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setFrameShape(QFrame.NoFrame)
         self.label_2.setFrameShadow(QFrame.Plain)
-        self.label_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        # self.label_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label_2)
 
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setFrameShape(QFrame.NoFrame)
         self.label_3.setFrameShadow(QFrame.Plain)
-        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        # self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label_3)
 
@@ -62,9 +62,29 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(u"label_4")
         self.label_4.setFrameShape(QFrame.NoFrame)
         self.label_4.setFrameShadow(QFrame.Plain)
-        self.label_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        # self.label_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label_4)
+
+        self.label_11 = QLabel(self.groupBox)
+        self.label_11.setObjectName(u"label_11")
+
+        self.verticalLayout_2.addWidget(self.label_11)
+
+        self.label_8 = QLabel(self.groupBox)
+        self.label_8.setObjectName(u"label_8")
+
+        self.verticalLayout_2.addWidget(self.label_8)
+
+        self.label_9 = QLabel(self.groupBox)
+        self.label_9.setObjectName(u"label_9")
+
+        self.verticalLayout_2.addWidget(self.label_9)
+
+        self.label_10 = QLabel(self.groupBox)
+        self.label_10.setObjectName(u"label_10")
+
+        self.verticalLayout_2.addWidget(self.label_10)
 
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
@@ -166,7 +186,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 691, 20))
+        self.menubar.setGeometry(QRect(0, 0, 952, 24))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -178,12 +198,16 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"BOMB BOMB BOMB", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"BOMB BOMB JIYOUNG BOMB", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"How to Play", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u" SpaceBar: \ud3ed\ud0c4\uc124\uce58", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u" \ubc29\ud5a5\ud0a4: \uce90\ub9ad\ud130 \ubc29\ud5a5", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"------------------", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"SpaceBar: \ud3ed\ud0c4\uc124\uce58", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Key_ ADWS: \uc88c\uc6b0\uc0c1\ud558", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"---------------------", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\ud3ed\ud0c4\uc124\uce58 \ud6c4, \ud0c0\uc774\uba38 \uc124\uc815", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"---------------------", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"\ud0c0\uc774\uba38 \uc124\uc815 \ud6c4\uc5d0", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\ud3ed\ud0c4\uc704\uce58 \ubcc0\uacbd \ubd88\uac00\ub2a5", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"---------------------", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"\uc22b\uc790 \uc798\ubabb \uc785\ub825\ud558\uba74", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\ud3ed\ud0c4\uc740 \uace0\uc7a5\ub0a8", None))
         self.pushButton__cancle.setText(QCoreApplication.translate("MainWindow", u"\ucca0\uac70", None))

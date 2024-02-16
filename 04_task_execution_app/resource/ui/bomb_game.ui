@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>691</width>
-    <height>283</height>
+    <width>952</width>
+    <height>403</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>BOMB BOMB BOMB</string>
+   <string>BOMB BOMB JIYOUNG BOMB</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -38,7 +38,7 @@
                   <enum>QFrame::Plain</enum>
                  </property>
                  <property name="text">
-                  <string> SpaceBar: 폭탄설치</string>
+                  <string>SpaceBar: 폭탄설치</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -54,7 +54,7 @@
                   <enum>QFrame::Plain</enum>
                  </property>
                  <property name="text">
-                  <string> 방향키: 캐릭터 방향</string>
+                  <string>Key_ ADWS: 좌우상하</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -70,7 +70,7 @@
                   <enum>QFrame::Plain</enum>
                  </property>
                  <property name="text">
-                  <string>------------------</string>
+                  <string>---------------------</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -90,6 +90,34 @@
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>---------------------</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>타이머 설정 후에</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>폭탄위치 변경 불가능</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>---------------------</string>
                  </property>
                 </widget>
                </item>
@@ -223,8 +251,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>691</width>
-     <height>20</height>
+     <width>952</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>
